@@ -57,11 +57,14 @@ void Student::Oceny::print_przedmioty(){
 // edycja ocen
 void Student::Oceny::edytuj(size_t index){
     system("clear");
-    auto wyb = 0;
+    size_t wyb = 0;
+    while(wyb != 3){
+    wyb = 0;
     std::string tmp = "";unsigned short int tmp_int = 0;
     std::cout<<"Co chesz edytowac: "<<std::endl;
     std::cout<<"1. Nazwa przedmiotu"<<std::endl;
     std::cout<<"2. Ocena"<<std::endl;
+    std::cout<<"3. Powrot do menu edycji ocen"<<std::endl;
     std::cin>>wyb;
 
     switch(wyb){
@@ -81,15 +84,27 @@ void Student::Oceny::edytuj(size_t index){
             system("clear");
             break;
         }
-        case 3:
+        case 3:{
+            system("clear");
+            std::cout<<"Powrot do menu"<<std::endl;
             break;
+               }
         default:{
-             std::cout<<"Brak takiej opcji"<<std::endl;
-             break;
+            std::cout<<"Brak takiej opcji"<<std::endl;
+            break;
         }
            
     }
+    }
 }
+
+std::ostream& operator<<(std::ostream &out, Student *&obj){
+    out<<" Numer albumu: "<<obj->Student::get_numer_al()
+        <<" Nazwisko: "<<obj->Student::get_nazwisko()
+        <<" Imie: "<<obj->Student::get_imie();
+    return out;
+}
+
 Student::~Student(){
     delete oceny;
 }

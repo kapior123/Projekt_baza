@@ -37,6 +37,7 @@ class Student{
         void write_nazwisko(std::string x);
         size_t get_numer_al();
         void write_Numer_al(size_t x);
+        friend std::ostream& operator<<(std::ostream &out, Student *&obj);
         
         ~Student();
 };

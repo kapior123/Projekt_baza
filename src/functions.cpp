@@ -5,9 +5,7 @@
 void print( Student **&S, size_t size){
     for (size_t i = 0; i < size; i++)
     {
-        std::cout<<i<<". Numer albumu: "<<S[i]->get_numer_al()<<
-            " Imie: "<<S[i]->get_imie()<<
-            " Nazwisko: "<<S[i]->get_nazwisko()<<std::endl;
+        std::cout<<i<<". "<<S[i]<<std::endl;
     }
 }
 void uzupelnij_rekord( Student **&S, size_t size, size_t index){
@@ -29,10 +27,13 @@ void uzupelnij_rekord( Student **&S, size_t size, size_t index){
 }
 
 void menu_edycji_przedmiotow(Student **&S, size_t index){
-    short unsigned int wyb;
-    std::cout<<"1. dodaj przedmiot"<<std::endl;
-    std::cout<<"2. pokaz przedmioty"<<std::endl;
-    std::cout<<"3. edytuj przedmiot"<<std::endl;
+    short unsigned int wyb (0);
+    while(wyb !=4){
+    wyb = 0;
+    std::cout<<"1. Dodaj przedmiot"<<std::endl;
+    std::cout<<"2. Pokaz przedmioty"<<std::endl;
+    std::cout<<"3. Edytuj przedmiot"<<std::endl;
+    std::cout<<"4. Wroc do menu"<<std::endl;
     std::cin>>wyb;
     switch (wyb)
     {
@@ -55,10 +56,16 @@ void menu_edycji_przedmiotow(Student **&S, size_t index){
         S[index]->class_oceny()->edytuj(wyb);
         break;
     }
-    default:
+    case 4:{
+        system("clear");
+        std::cout<<"Powrot do menu"<<std::endl;
         break;
     }
-
+    default:
+        std::cout<<"Brak takiej opcji"<<std::endl;
+        break;
+    }
+    }
 }
 void uzupelnij_doktoranta(Doktorant **&S, size_t size, size_t index){
     if(index<0 || size<index) std::cout<<"brak takiego rekordu"<<std::endl;
@@ -87,10 +94,6 @@ void uzupelnij_doktoranta(Doktorant **&S, size_t size, size_t index){
 void print( Doktorant **&S, size_t size){
     for (size_t i = 0; i < size; i++)
     {
-        std::cout<<i<<". Numer albumu: "<<S[i]->get_numer_al()<<
-            " Imie: "<<S[i]->get_imie()<<
-            " Nazwisko: "<<S[i]->get_nazwisko()<<
-            " Grupa: "<<S[i]->get_grupa()<<
-            " Promotor: "<<S[i]->get_promotor()<<std::endl;
+        std::cout<<i<<". "<<S[i]<<std::endl;
     }
 }

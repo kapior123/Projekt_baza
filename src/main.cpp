@@ -1,6 +1,11 @@
 #include "student.h"
 #include "functions.h"
-
+/*
+ * TODO:
+ *      [!] Odczytywanie imion i nazwisk z plików
+ *      [!] Implementacja kontenerów STL
+ *      [!] Przeciąrzyć operatory
+ * */
 int main(){
     system("clear");
     size_t size = 0,size_dok = 0,back_size = 0,index = 0;
@@ -25,7 +30,7 @@ int main(){
     switch (wybor){
         case 1:{
             system("clear");
-            dodaje<Student>(studenci,size);
+            dodaje(studenci,size);
             std::cout<<"Dodano rekord"<<std::endl;
             break;
         }
