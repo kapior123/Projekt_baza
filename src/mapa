@@ -1,0 +1,11 @@
+       osoba
+      /     \
+student      nauczyciel
+      \     /
+     doktorant
+
+student -> oceny
+nauczyciel -> oceny
+friend nauczyciel-> student::oceny
+nauczyciel -> grupy z studentami i ocenami
+doktorant -> nauczyciel 

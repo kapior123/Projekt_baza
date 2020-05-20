@@ -1,16 +1,12 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-
-#include <iostream>
+#include "osoba.h"
 #include <cstdlib>
 
 
-class Student{
+class Student:virtual public Osoba{
     private:
         size_t Numer_albumu;
-        std::string imie;
-        std::string nazwisko;
-
         class Oceny{
             private:
                 std::string *przedmiot;
@@ -28,13 +24,13 @@ class Student{
         
         Oceny *oceny;
     public:
-        Student():Numer_albumu(0), imie("brak"), nazwisko("brak"){oceny = new Oceny;};
+        Student(): Numer_albumu(0){oceny = new Oceny;};
         Student(Student *&kstudent);
         Oceny* class_oceny();
         std::string get_imie();
-        void write_imie(std::string x);
         std::string get_nazwisko();
-        void write_nazwisko(std::string x);
+        void write_imie(std::string a);
+        void write_nazwisko(std::string a);
         size_t get_numer_al();
         void write_Numer_al(size_t x);
         friend std::ostream& operator<<(std::ostream &out, Student *&obj);

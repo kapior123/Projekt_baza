@@ -66,6 +66,7 @@ void menu_edycji_przedmiotow(Student **&S, size_t index){
         break;
     }
     }
+    
 }
 void uzupelnij_doktoranta(Doktorant **&S, size_t size, size_t index){
     if(index<0 || size<index) std::cout<<"brak takiego rekordu"<<std::endl;

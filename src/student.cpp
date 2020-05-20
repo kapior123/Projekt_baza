@@ -1,11 +1,10 @@
 #include "student.h"
 //metody klasy Student i klasy zagnieżdzonej Oceny
+std::string Student::get_imie(){ return imie; }
+std::string Student::get_nazwisko(){ return nazwisko; }
 
-std::string  Student::get_imie(){return imie;}
-void  Student::write_imie(std::string x){ imie = x; }
-
-std::string  Student::get_nazwisko(){ return nazwisko; }
-void  Student::write_nazwisko(std::string x){ nazwisko = x; }
+void Student::write_imie(std::string a){ imie = a; }
+void Student::write_nazwisko(std::string a){ nazwisko = a; }
 
 size_t  Student::get_numer_al(){ return Numer_albumu; }
 void  Student::write_Numer_al(size_t x){ Numer_albumu = x; }
@@ -20,8 +19,8 @@ size_t Student::Oceny::write_ocena(){ return size; }
 
 Student::Student( Student *& kstudent){
     Numer_albumu = kstudent->Numer_albumu;
-    imie =  kstudent->imie;
-    nazwisko = kstudent->nazwisko;
+    write_imie(kstudent->get_imie());
+    write_nazwisko(kstudent->get_nazwisko());
     oceny = kstudent->oceny;
 }
 
@@ -57,9 +56,8 @@ void Student::Oceny::print_przedmioty(){
 // edycja ocen
 void Student::Oceny::edytuj(size_t index){
     system("clear");
-    size_t wyb = 0;
+    size_t wyb(0);
     while(wyb != 3){
-    wyb = 0;
     std::string tmp = "";unsigned short int tmp_int = 0;
     std::cout<<"Co chesz edytowac: "<<std::endl;
     std::cout<<"1. Nazwa przedmiotu"<<std::endl;

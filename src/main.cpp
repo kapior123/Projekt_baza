@@ -1,14 +1,17 @@
 #include "student.h"
 #include "functions.h"
-/*
- * TODO:
+
+/* TODO:
  *      [!] Odczytywanie imion i nazwisk z plików
  *      [!] Implementacja kontenerów STL
  *      [!] Przeciąrzyć operatory
+ *      [!] Dodać przestrzenie nazw
  * */
+
 int main(){
     system("clear");
-    size_t size = 0,size_dok = 0,back_size = 0,index = 0;
+    size_t size(0), size_dok(0),back_size(0);
+    Nauczyciel *_nauczyciel = new Nauczyciel;
     Student **studenci = nullptr;
     Student **k_studenci = nullptr;
     Doktorant **doktorant = nullptr;
@@ -16,107 +19,25 @@ int main(){
     while(true){
     unsigned short int wybor;
     std::cout<<"Menu Bazy"<<std::endl<<
-        "1. Dodaj rekord"<<std::endl<<
-        "2. Usun rekord"<<std::endl<<
-        "3. Wypisz rekordy"<<std::endl<<
-        "4. Edytuj rekord"<<std::endl<<
-        "5. Menu edycji przedmiotow"<<std::endl<<
-        "6. Menu edycji doktorantow"<<std::endl<<
-        "8. Przywroc Baze"<<std::endl<<
-        "9. Usun Baze"<<std::endl<<
-        "0. Wyjdz"<<std::endl;
+        "1. Menu edycji studentow"<<std::endl<<
+        "2. Menu edycji doktorantow"<<std::endl<<
+        "3. Wyjscie"<<std::endl;
     std::cin>>wybor;
 
     switch (wybor){
         case 1:{
-            system("clear");
-            dodaje(studenci,size);
-            std::cout<<"Dodano rekord"<<std::endl;
-            break;
-        }
+                system("clear");
+                std::cout<<"Menu edycji studentow"<<std::endl;
+                _nauczyciel->edit_student(studenci, k_studenci, size, back_size);
+                break;
+               }
         case 2:{
-            system("clear");
-            if(studenci != nullptr){
-                print(studenci,size);
-                std::cout<<"Podaj numer rekordu do usuniecia:"<<std::endl;
-                std::cin>>index;
-                usun(studenci,size,index);
-                break;
-            }
-            else{
-                std::cout<<"Brak bazy"<<std::endl;
-                break;
-            }
-        }
-        case 3:{
-            system("clear");
-            print(studenci,size);
-            std::cout<<"Wypisano rekordy"<<std::endl;
-            break;
-        }
-        case 4:{
-            system("clear");
-            print(studenci,size);
-            std::cout<<"Podaj numer rekordu do edycji: "<<std::endl;
-            std::cin>>index;
-            uzupelnij_rekord(studenci,size,index);
-            break;
-        }
-        case 5:{
-            system("clear");
-            if(studenci != nullptr){
-                print(studenci,size);
-                std::cout<<"Podaj numer studenta ktorego przedmioty chcesz zedytowac: "<<std::endl;
-                std::cin>>index;
-                menu_edycji_przedmiotow(studenci,index);
-                break;
-            }
-            else{
-                std::cout<<"Brak bazy"<<std::endl;
-                break;
-            }
-        }
-        case 6:{
                 system("clear");
                 std::cout<<"Menu edycji doktorantow"<<std::endl;
                 menu_edit_doktorant(doktorant,size_dok);          
                 break;
                }
-        
-        case 8:{
-            if(k_studenci != nullptr){
-                studenci = k_studenci;
-                size = back_size;
-                system("clear");
-                std::cout<<"Baza przywrocona"<<std::endl;
-            }
-            else{
-                system("clear");
-                std::cout<<"Brak bazy do przywrocenia"<<std::endl;
-            }
-                break;
-        }
-        
-        case 9:{
-            if(studenci != nullptr){
-                k_studenci = new Student*[size+1];
-                for(size_t i = 0;i<size;i++){
-                    k_studenci[i] = new Student(studenci[i]);
-                }
-
-                back_size = size;
-                size = 0;
-                usun(studenci,size);
-                system("clear");
-                std::cout<<"Baza usunieta"<<std::endl;
-            }
-            else{
-                system("clear");
-                std::cout<<"Brak bazy"<<std::endl;
-           }
-            break;
-        }
-        case 0:{
+        case 3:{
             std::cout<<"Wychodzienie"<<std::endl;
             return 1;
             break;

@@ -1,6 +1,13 @@
 #include "doktorant.h"
 #include "functions.h"
 
+
+std::string Doktorant::get_imie(){ return imie; }
+std::string Doktorant::get_nazwisko(){ return nazwisko; }
+
+void Doktorant::write_imie(std::string a){ imie = a; }
+void Doktorant::write_nazwisko(std::string a){ nazwisko = a; }
+
 std::string Doktorant::get_grupa(){ return grupa; }
 std::string Doktorant::get_promotor(){ return promotor; }
 
@@ -9,7 +16,7 @@ void Doktorant::write_promotor(std::string a){ promotor = a; }
 
 
 void menu_edit_doktorant(Doktorant **&S,size_t &size){
-    size_t swi = 0, index; 
+    size_t swi(0), index; 
     while(swi != 6){
     swi = 0, index = 0;
     std::cout<<"Menu doktorantow"<<std::endl
@@ -69,16 +76,12 @@ void menu_edit_doktorant(Doktorant **&S,size_t &size){
 }
 
 std::ostream& operator<<(std::ostream &out, Doktorant *&obj){
-    out<<" Numer albumu: "<<obj->Doktorant::get_numer_al()
-        <<" Nazwisko: "<<obj->Doktorant::get_nazwisko()
-        <<" Imie: "<<obj->Doktorant::get_imie()
-        <<" Promotor: "<<obj->Doktorant::get_promotor()
-        <<" Grupa: "<<obj->Doktorant::get_grupa();
+    out<<" Numer albumu: "<<obj->get_numer_al()
+        <<" Nazwisko: "<<obj->get_nazwisko()
+        <<" Imie: "<<obj->get_imie()
+        <<" Promotor: "<<obj->get_promotor()
+        <<" Grupa: "<<obj->get_grupa();
     return out;
 }
 
 
-
-Doktorant::~Doktorant(){
-
-}
