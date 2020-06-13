@@ -9,11 +9,11 @@ class Student:virtual public Osoba{
         size_t Numer_albumu;
         class Oceny{
             private:
-                std::string *przedmiot;
-                unsigned short int *ocena;
                 size_t size;
+                std::string* przedmiot;
+                unsigned short int* ocena;
             public:
-                Oceny():przedmiot(nullptr), ocena(nullptr), size(0) {};
+                Oceny():przedmiot(nullptr), ocena(nullptr){};
                 void write_przedmiot(size_t index, std::string x);
                 void write_ocena(size_t index, unsigned short int x);
                 void dodaj_przedmiot();

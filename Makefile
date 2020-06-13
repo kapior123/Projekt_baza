@@ -1,11 +1,11 @@
 dziekanat.bin: doktorant.o  functions.o nauczyciel.o student.o main.o
 	g++ -I src/osoba.h obj/doktorant.o obj/nauczyciel.o obj/functions.o obj/student.o obj/main.o -o bin/dziekanat.bin
 
+functions.o: doktorant.o student.o 
+	g++ -c src/functions.cpp -o obj/functions.o
+
 doktorant.o:
 	g++ -c src/doktorant.cpp -o obj/doktorant.o
-
-functions.o: 
-	g++ -c src/functions.cpp -o obj/functions.o
 
 nauczyciel.o:
 	g++ -c src/nauczyciel.cpp -o obj/nauczyciel.o

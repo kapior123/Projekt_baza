@@ -2,7 +2,6 @@
 #define OSOBA_H
 
 #include <iostream> 
-
 class Osoba{
     public:
         std::string imie;

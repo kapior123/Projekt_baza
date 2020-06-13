@@ -2,9 +2,7 @@
 #define DOKTORANT_H
 #include "student.h"
 #include "nauczyciel.h"
-//class osoba :: student osoba , doktorant dziedziczy po student, po osobie nauczyciel, doktorant po nauczyciel
-//class student:virtual public osoby
-//class nauczyciel:virtual public osoby
+
 class Doktorant: public Student, public Nauczyciel{
     private:
         std::string grupa;

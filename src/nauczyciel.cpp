@@ -1,7 +1,5 @@
 #include "nauczyciel.h"
 #include "functions.h"
-
-
 std::string Nauczyciel::get_imie(){ return imie; }
 std::string Nauczyciel::get_nazwisko(){ return nazwisko; }
 
@@ -9,6 +7,7 @@ void Nauczyciel::write_imie(std::string a){ imie = a; }
 void Nauczyciel::write_nazwisko(std::string a){ nazwisko = a; }
 
 void Nauczyciel::edit_student(Student **&studenci, Student **&k_studenci, size_t size, size_t back_size){
+    using namespace func;
     int wyb(0),index(0);
     while(wyb !=8){
         

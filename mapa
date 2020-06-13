@@ -8,4 +8,7 @@ student -> oceny
 nauczyciel -> oceny
 friend nauczyciel-> student::oceny
 nauczyciel -> grupy z studentami i ocenami
-doktorant -> nauczyciel 
+doktorant -> nauczyciel
+//class osoba :: student osoba , doktorant dziedziczy po student, po osobie nauczyciel, doktorant po nauczyciel
+//class student:virtual public osoby
+//class nauczyciel:virtual public osoby

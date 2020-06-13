@@ -1,7 +1,6 @@
 #include "doktorant.h"
 #include "functions.h"
 
-
 std::string Doktorant::get_imie(){ return imie; }
 std::string Doktorant::get_nazwisko(){ return nazwisko; }
 
@@ -16,6 +15,7 @@ void Doktorant::write_promotor(std::string a){ promotor = a; }
 
 
 void menu_edit_doktorant(Doktorant **&S,size_t &size){
+    using namespace func;
     size_t swi(0), index; 
     while(swi != 6){
     swi = 0, index = 0;
@@ -30,7 +30,7 @@ void menu_edit_doktorant(Doktorant **&S,size_t &size){
     switch(swi){
         case 1:{
                 system("clear");
-                dodaje(S,size);
+                func::dodaje(S,size);
                 break;
                }
         case 2:{
