@@ -1,4 +1,4 @@
-dziekanat.bin: doktorant.o  functions.o nauczyciel.o student.o main.o
+dziekanat.bin: mkdir doktorant.o  functions.o nauczyciel.o student.o main.o 
 	g++ -I src/osoba.h obj/doktorant.o obj/nauczyciel.o obj/functions.o obj/student.o obj/main.o -o bin/dziekanat.bin
 
 functions.o: doktorant.o student.o 
@@ -15,6 +15,9 @@ student.o:
 
 main.o: 
 	g++ -c src/main.cpp -o obj/main.o
+
+mkdir:
+	mkdir -p obj bin
 
 clear:
 	rm obj/*

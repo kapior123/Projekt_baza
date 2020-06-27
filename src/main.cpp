@@ -1,10 +1,6 @@
 #include "functions.h"
 #include "osoba.h"
-/* TODO:
- *      [!] Implementacja kontenerów STL
- *      [!] Przeciąrzyć operatory
- *      [!] Dodać przestrzenie nazw
- * */
+
 enum{
     edycja_studentow = 1,
     edycja_doktorantow = 2,
